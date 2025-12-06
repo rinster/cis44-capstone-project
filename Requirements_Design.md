@@ -34,3 +34,9 @@ Hospital
 ```
 
 The design uses a Min-Heap for patient triage, ensuring that the highest-priority patients are always processed first, with O(log n) insertion and removal for efficient queue management. The Tree structure organizes patient medical records hierarchically, allowing fast O(1) additions and O(n) traversal for displaying all records. This combination balances speed and simplicity, providing predictable performance for core hospital operations while remaining easy to maintain and extend.
+
+** Chron Job (Potential) ** 
+Add a Chron job class that will run in the backgroud to fetch the latest patients in the heap
+
+** Java Swing Fx for GUI **
+Add a UI for the user to interact with the data, adding and fetching priority list
