@@ -46,7 +46,7 @@ public class HospitalClassTest {
         queue.insert(patient2);
         queue.insert(patient1);
         queue.insert(patient3);
-        
+
         Patient min = queue.min();
         assertNotNull("Min should not be null", min);
         assertEquals("Min should be patient with priority 1", patient1, min);
@@ -64,7 +64,7 @@ public class HospitalClassTest {
         queue.insert(patient2);
         queue.insert(patient1);
         queue.insert(patient3);
-        
+
         Patient removed = queue.removeMin();
         assertNotNull("Removed patient should not be null", removed);
         assertEquals("Removed patient should have priority 1", 1, removed.getPriority());
@@ -83,14 +83,14 @@ public class HospitalClassTest {
         queue.insert(patient3); // priority 3
         queue.insert(patient1); // priority 1
         queue.insert(patient2); // priority 2
-        
+
         // Should remove in priority order: 1, 2, 3
         Patient first = queue.removeMin();
         assertEquals("First patient should have priority 1", 1, first.getPriority());
-        
+
         Patient second = queue.removeMin();
         assertEquals("Second patient should have priority 2", 2, second.getPriority());
-        
+
         Patient third = queue.removeMin();
         assertEquals("Third patient should have priority 3", 3, third.getPriority());
     }
@@ -100,13 +100,13 @@ public class HospitalClassTest {
         queue.insert(patient1);
         queue.insert(patient2);
         queue.insert(patient3);
-        
+
         queue.removeMin();
         assertEquals("Size should be 2 after one removal", 2, queue.size());
-        
+
         queue.removeMin();
         assertEquals("Size should be 1 after two removals", 1, queue.size());
-        
+
         queue.removeMin();
         assertTrue("Queue should be empty after all removals", queue.isEmpty());
         assertEquals("Size should be 0 after all removals", 0, queue.size());
@@ -116,8 +116,8 @@ public class HospitalClassTest {
 
     @Test
     public void testPatientGetName() {
-        assertEquals("Patient name should match", "John Doe", patient1.getName());
-        assertEquals("Patient name should match", "Jane Smith", patient2.getName());
+        assertEquals("Patient name should match", "John Xie", patient1.getName());
+        assertEquals("Patient name should match", "Aimee Duong", patient2.getName());
     }
 
     @Test
@@ -133,7 +133,6 @@ public class HospitalClassTest {
         assertEquals("Priority should be updated to 5", 5, patient1.getPriority());
     }
 
-
     @Test
     public void testHospitalClassAddPatient() {
         hospital.addPatient("Alice Brown", 1);
@@ -147,7 +146,7 @@ public class HospitalClassTest {
     public void testHospitalClassProcessPatient() {
         hospital.addPatient("Alice Brown", 2);
         hospital.addPatient("Charlie Davis", 1);
-        
+
         // Should process patient with priority 1 first
         Patient first = hospital.processPatient();
         assertNotNull("First processed patient should not be null", first);
@@ -160,16 +159,16 @@ public class HospitalClassTest {
         hospital.addPatient("Patient A", 3);
         hospital.addPatient("Patient B", 1);
         hospital.addPatient("Patient C", 2);
-        
+
         // Should process in priority order: 1, 2, 3
         Patient first = hospital.processPatient();
         assertEquals("First should have priority 1", 1, first.getPriority());
         assertEquals("First should be Patient B", "Patient B", first.getName());
-        
+
         Patient second = hospital.processPatient();
         assertEquals("Second should have priority 2", 2, second.getPriority());
         assertEquals("Second should be Patient C", "Patient C", second.getName());
-        
+
         Patient third = hospital.processPatient();
         assertEquals("Third should have priority 3", 3, third.getPriority());
         assertEquals("Third should be Patient A", "Patient A", third.getName());
@@ -186,11 +185,11 @@ public class HospitalClassTest {
         Patient p1 = new Patient("Patient 1", 2);
         Patient p2 = new Patient("Patient 2", 2);
         Patient p3 = new Patient("Patient 3", 2);
-        
+
         queue.insert(p1);
         queue.insert(p2);
         queue.insert(p3);
-        
+
         // All have same priority, should be able to remove all
         assertNotNull("Should be able to remove first", queue.removeMin());
         assertNotNull("Should be able to remove second", queue.removeMin());
@@ -198,6 +197,3 @@ public class HospitalClassTest {
         assertTrue("Queue should be empty", queue.isEmpty());
     }
 }
-
-
-
